@@ -1,5 +1,7 @@
-# DisassemblyDronesTeam-Website
+# Disassembly Drones Team
 
 *Powered by GitHub Pages*
 
-Без открытого исходного кода, свободная версия будет доступна скоро.
+Это - Сайт-визитка, здесь вы можете узнать про меня и мои соцсети.
+
+**Сайт в разработке**
