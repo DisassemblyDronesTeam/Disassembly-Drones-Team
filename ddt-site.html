@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>𝖣𝗂𝗌𝖺𝗌𝗌𝖾𝗆𝖻𝗅𝗒 𝖣𝗋𝗈𝗇𝖾𝗌 𝖳𝖾𝖺𝗆</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .social-section {
+            padding: 60px 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+
+        .social-title {
+            text-align: center;
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .social-item {
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: 120px;
+        }
+
+        .social-item:hover {
+            transform: translateY(-10px) scale(1.05);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .social-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .social-name {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            
+            .social-title {
+                font-size: 2rem;
+            }
+            
+            .social-icons {
+                gap: 15px;
+            }
+            
+            .social-item {
+                width: 100px;
+                padding: 15px;
+            }
+            
+            .social-icon {
+                font-size: 2rem;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="animate">Disassembly Drones Team</h1>
+                <p class="animate delay-1">Making a future, for you.</p>
+                
+                <div class="social-section animate delay-2">
+                    <h2 class="social-title">My main accounts:</h2>
+                    <div class="social-icons">
+                        <a href="https://github.com/DisassemblyDronesTeam" class="social-item" target="_blank">
+                            <i class="fab fa-github social-icon"></i>
+                            <span class="social-name">GitHub</span>
+                        </a>
+                        
+                        <a href="https://steamcommunity.com/id/DDT-Steam" class="social-item" target="_blank">
+                            <i class="fab fa-steam social-icon"></i>
+                            <span class="social-name">Steam</span>
+                        </a>
+                        
+                        <a href="https://t.me/DisassemblyDronesTeam" class="social-item" target="_blank">
+                            <i class="fab fa-telegram social-icon"></i>
+                            <span class="social-name">Telegram</span>
+                        </a>
+                        
+                        <a href="https://disassemblydronesteam.github.io/Disassembly-Drones-Team/" class="social-item" target="_blank">
+                            <i class="fab fa-discord social-icon"></i>
+                            <span class="social-name">Discord [NOT READY]</span>
+                        </a>
+                        
+                        <a href="https://disassemblydronesteam.github.io/Disassembly-Drones-Team/" class="social-item" target="_blank">
+                            <i class="fab fa-github social-icon"></i>
+                            <span class="social-name">Website but with cool domain [not working i think]</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animate');
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+            });
+            
+            setTimeout(() => {
+                animatedElements.forEach(el => {
+                    el.style.opacity = '1';
+                });
+            }, 100);
+        });
+    </script>
+</body>
+</html>
