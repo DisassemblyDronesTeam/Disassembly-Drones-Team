@@ -12,12 +12,23 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --text-color: #333;
+            --light-text: white;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --card-bg: rgba(255, 255, 255, 0.15);
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--text-color);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
             min-height: 100vh;
+            transition: background 0.5s ease;
         }
 
         .container {
@@ -26,14 +37,95 @@
             padding: 0 20px;
         }
 
+        header {
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--light-text);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 10px 15px;
+            border-radius: 10px;
+        }
+
+        .nav-links a:hover {
+            background: var(--glass-bg);
+            transform: translateY(-2px);
+        }
+
+        .language-switcher {
+            display: flex;
+            gap: 10px;
+        }
+
+        .language-btn {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            color: var(--light-text);
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .language-btn:hover {
+            background: var(--card-bg);
+        }
+
+        .language-btn.active {
+            background: var(--light-text);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        main {
+            padding-top: 100px;
+        }
+
+        .page {
+            display: none;
+            min-height: 80vh;
+            padding: 40px 0;
+        }
+
+        .page.active {
+            display: block;
+        }
+
         .hero {
-            min-height: 100vh;
+            min-height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: white;
-            padding: 40px 20px;
+            color: var(--light-text);
         }
 
         .hero-content h1 {
@@ -49,41 +141,35 @@
             opacity: 0.9;
         }
 
-        .social-section {
-            padding: 60px 0;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            margin: 40px 0;
+        .social-preview {
+            margin-top: 50px;
         }
 
         .social-title {
-            text-align: center;
-            color: white;
-            font-size: 2.5rem;
-            margin-bottom: 40px;
+            font-size: 2rem;
+            margin-bottom: 30px;
             font-weight: 300;
         }
 
         .social-icons {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 20px;
             flex-wrap: wrap;
         }
 
         .social-item {
             text-decoration: none;
-            color: white;
+            color: var(--light-text);
             transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 20px;
             border-radius: 15px;
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--card-bg);
             backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid var(--glass-border);
             width: 120px;
         }
 
@@ -103,7 +189,94 @@
             opacity: 0.9;
         }
 
+        .links-page {
+            text-align: center;
+            color: var(--light-text);
+        }
+
+        .links-header {
+            margin-bottom: 50px;
+        }
+
+        .links-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .link-category {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .category-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .category-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--light-text);
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .category-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(5px);
+        }
+
+        .link-icon {
+            font-size: 1.2rem;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 12px 25px;
+            background: var(--card-bg);
+            color: var(--light-text);
+            text-decoration: none;
+            border-radius: 10px;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
         @media (max-width: 768px) {
+            .nav-links {
+                gap: 15px;
+            }
+            
             .hero-content h1 {
                 font-size: 2.5rem;
             }
@@ -113,11 +286,7 @@
             }
             
             .social-title {
-                font-size: 2rem;
-            }
-            
-            .social-icons {
-                gap: 15px;
+                font-size: 1.8rem;
             }
             
             .social-item {
@@ -128,12 +297,20 @@
             .social-icon {
                 font-size: 2rem;
             }
+            
+            .links-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
-        @keyframes fadeInUp {
+        @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -142,64 +319,213 @@
         }
 
         .animate {
-            animation: fadeInUp 0.8s ease-out forwards;
+            animation: fadeIn 0.8s ease-out forwards;
         }
 
         .delay-1 { animation-delay: 0.2s; }
         .delay-2 { animation-delay: 0.4s; }
         .delay-3 { animation-delay: 0.6s; }
-        .delay-4 { animation-delay: 0.8s; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <section class="hero">
-            <div class="hero-content">
-                <h1 class="animate">Disassembly Drones Team</h1>
-                <p class="animate delay-1">Making a future, for you.</p>
-                
-                <div class="social-section animate delay-2">
-                    <h2 class="social-title">My main accounts:</h2>
-                    <div class="social-icons">
-                        <a href="https://github.com/DisassemblyDronesTeam" class="social-item" target="_blank">
-                            <i class="fab fa-github social-icon"></i>
-                            <span class="social-name">GitHub</span>
-                        </a>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo" data-lang="logo">Disassembly Drones Team</a>
+                <div class="nav-links">
+                    <a href="#" class="nav-link" data-page="home" data-lang="nav-home">Главная</a>
+                    <a href="#" class="nav-link" data-page="links" data-lang="nav-links">Все ссылки</a>
+                </div>
+                <div class="language-switcher">
+                    <button class="language-btn active" data-lang="ru">RU</button>
+                    <button class="language-btn" data-lang="en">EN</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section id="home" class="page active">
+                <div class="hero">
+                    <div class="hero-content">
+                        <h1 class="animate" data-lang="hero-title">Disassembly Drones Team</h1>
+                        <p class="animate delay-1" data-lang="hero-subtitle">Making a future, for you.</p>
                         
-                        <a href="https://steamcommunity.com/id/DDT-Steam" class="social-item" target="_blank">
-                            <i class="fab fa-steam social-icon"></i>
-                            <span class="social-name">Steam</span>
-                        </a>
-                        
-                        <a href="https://t.me/DisassemblyDronesTeam" class="social-item" target="_blank">
-                            <i class="fab fa-telegram social-icon"></i>
-                            <span class="social-name">Telegram</span>
-                        </a>
-                        
-                        <a href="https://disassemblydronesteam.github.io/Disassembly-Drones-Team/" class="social-item" target="_blank">
-                            <i class="fab fa-discord social-icon"></i>
-                            <span class="social-name">Discord [NOT READY]</span>
-                        </a>
-                        
-                        <a href="https://disassemblydronesteam.github.io/Disassembly-Drones-Team/" class="social-item" target="_blank">
-                            <i class="fab fa-github social-icon"></i>
-                            <span class="social-name">Website but with cool domain [not working i think]</span>
-                        </a>
+                        <div class="social-preview animate delay-2">
+                            <h2 class="social-title" data-lang="social-preview">My main accounts:</h2>
+                            <div class="social-icons">
+                                <a href="https://github.com/DisassemblyDronesTeam" class="social-item" target="_blank">
+                                    <i class="fab fa-github social-icon"></i>
+                                    <span class="social-name">GitHub</span>
+                                </a>
+                                
+                                <a href="https://steamcommunity.com/id/DDT-Steam" class="social-item" target="_blank">
+                                    <i class="fab fa-steam social-icon"></i>
+                                    <span class="social-name">Steam</span>
+                                </a>
+                                
+                                <a href="https://t.me/DisassemblyDronesTeam" class="social-item" target="_blank">
+                                    <i class="fab fa-telegram social-icon"></i>
+                                    <span class="social-name">Telegram</span>
+                                </a>
+                            </div>
+                            
+                            <a href="#" class="back-btn animate delay-3" data-page="links" data-lang="view-all">Все ссылки</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    </div>
+            </section>
+
+            <section id="links" class="page">
+                <div class="links-page">
+                    <div class="links-header">
+                        <h1 class="animate" data-lang="links-title">Все мои ссылки</h1>
+                        <p class="animate delay-1" data-lang="links-subtitle">Свяжитесь со мной через социальные сети</p>
+                    </div>
+                    
+                    <div class="links-grid">
+                        <div class="link-category animate delay-1">
+                            <h2 class="category-title">
+                                <i class="fas fa-share-alt"></i>
+                                <span data-lang="category-social">Социальные сети</span>
+                            </h2>
+                            <div class="category-links">
+                                <a href="https://github.com/DisassemblyDronesTeam" class="category-link" target="_blank">
+                                    <i class="fab fa-github link-icon"></i>
+                                    <span>GitHub</span>
+                                </a>
+                                <a href="https://steamcommunity.com/id/DDT-Steam" class="category-link" target="_blank">
+                                    <i class="fab fa-steam link-icon"></i>
+                                    <span>Steam</span>
+                                </a>
+                                <a href="https://t.me/DisassemblyDronesTeam" class="category-link" target="_blank">
+                                    <i class="fab fa-telegram link-icon"></i>
+                                    <span>Telegram</span>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="link-category animate delay-2">
+                            <h2 class="category-title">
+                                <i class="fas fa-comment"></i>
+                                <span data-lang="category-messengers">Мессенджеры</span>
+                            </h2>
+                            <div class="category-links">
+                                <a href="https://t.me/DisassemblyDronesTeam" class="category-link" target="_blank">
+                                    <i class="fab fa-telegram link-icon"></i>
+                                    <span>Telegram</span>
+                                </a>
+                                <a href="https://disassemblydronesteam.github.io/Disassembly-Drones-Team/" class="category-link" target="_blank">
+                                    <i class="fab fa-discord link-icon"></i>
+                                    <span>Discord [NOT READY]</span>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="link-category animate delay-3">
+                            <h2 class="category-title">
+                                <i class="fas fa-globe"></i>
+                                <span data-lang="category-websites">Вебсайты</span>
+                            </h2>
+                            <div class="category-links">
+                                <a href="https://disassemblydronesteam.github.io/Disassembly-Drones-Team/" class="category-link" target="_blank">
+                                    <i class="fab fa-github link-icon"></i>
+                                    <span>Website but with cool domain [not working i think]</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="back-btn animate delay-3" data-page="home" data-lang="back-home">На главную</a>
+                </div>
+            </section>
+        </div>
+    </main>
 
     <script>
+        const translations = {
+            'ru': {
+                'logo': 'Disassembly Drones Team',
+                'nav-home': 'Главная',
+                'nav-links': 'Все ссылки',
+                'hero-title': 'Disassembly Drones Team',
+                'hero-subtitle': 'Making a future, for you.',
+                'social-preview': 'Мои основные аккаунты:',
+                'view-all': 'Все ссылки',
+                'links-title': 'Все мои ссылки',
+                'links-subtitle': 'Свяжитесь со мной через социальные сети',
+                'category-social': 'Социальные сети',
+                'category-messengers': 'Мессенджеры',
+                'category-websites': 'Вебсайты',
+                'back-home': 'На главную'
+            },
+            'en': {
+                'logo': 'Disassembly Drones Team',
+                'nav-home': 'Home',
+                'nav-links': 'All Links',
+                'hero-title': 'Disassembly Drones Team',
+                'hero-subtitle': 'Making a future, for you.',
+                'social-preview': 'My main accounts:',
+                'view-all': 'View All Links',
+                'links-title': 'All My Links',
+                'links-subtitle': 'Connect with me through social media',
+                'category-social': 'Social Networks',
+                'category-messengers': 'Messengers',
+                'category-websites': 'Websites',
+                'back-home': 'Back to Home'
+            }
+        };
+
+        let currentLang = 'ru';
+
+        function translatePage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-lang]').forEach(element => {
+                const key = element.getAttribute('data-lang');
+                if (translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            
+            document.documentElement.lang = lang;
+        }
+
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
-            const animatedElements = document.querySelectorAll('.animate');
-            animatedElements.forEach(el => {
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    translatePage(this.dataset.lang);
+                });
+            });
+            
+            document.querySelectorAll('.nav-link, .back-btn').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showPage(this.dataset.page);
+                });
+            });
+            
+            document.querySelectorAll('.animate').forEach(el => {
                 el.style.opacity = '0';
             });
             
             setTimeout(() => {
-                animatedElements.forEach(el => {
+                document.querySelectorAll('.animate').forEach(el => {
                     el.style.opacity = '1';
                 });
             }, 100);
